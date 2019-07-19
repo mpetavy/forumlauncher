@@ -35,7 +35,6 @@ const (
 )
 
 var (
-	timeout    int = 0
 	viewerpath string
 	logFile    *os.File
 )
@@ -253,71 +252,6 @@ func main() {
 	}
 
 	info("launcher parameter: %s", cmdLine)
-
-	if timeout > 0 {
-		usr, err := user.Current()
-		if err != nil {
-			fatal(err)
-		}
-
-		info("user home dir: %s", usr.HomeDir)
-
-		sessionName := ""
-
-		if isWindows() {
-			v, b := os.LookupEnv("SESSIONNAME")
-
-			if b {
-				sessionName = "-" + strings.ToUpper(v)
-			}
-		}
-
-		filename := filepath.Join(usr.HomeDir, fmt.Sprintf(".forumlauncher%s.properties", sessionName))
-
-		info("launcher file: %s", filename)
-
-		file, err := os.Create(filename)
-		if err != nil {
-			fatal(err)
-		}
-
-		fmt.Fprintf(file, "%s", cmdLine)
-
-		err = file.Close()
-		if err != nil {
-			fatal(err)
-		}
-
-		info("launcher file written")
-
-		var fileTaken bool
-
-		info("loop on timeout %d msec or file taken ...", timeout)
-
-		start := time.Now()
-
-		for {
-			time.Sleep(time.Millisecond * 250)
-
-			fileTaken = !fileExists(filename)
-
-			if fileTaken || time.Now().Sub(start) > (time.Duration(timeout)*time.Millisecond) {
-				break
-			}
-		}
-
-		if fileTaken {
-			info("launcher file was successfully taken by running forum viewer instance")
-			os.Exit(0)
-		}
-
-		info("launcher file still exists after timeout -> start a new FORUM instance ...")
-
-		err = os.Remove(filename)
-		if err != nil {
-			fatal(err)
-		}
-	}
 
 	var args []string
 

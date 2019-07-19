@@ -8,7 +8,7 @@ AppContact=Carl Zeiss Meditec AG
 AppCopyright=Carl Zeiss Meditec AG
 AppVersion=1.0.0
 AppPublisher=Carl Zeiss Meditec AG
-AppPublisherURL=https://www.zeiss.de/meditec-ag
+AppPublisherURL=https://www.zeiss.de/meditec/home.html
 AppendDefaultDirName=false
 DefaultDirName={pf}\CZM\Forum Viewer
 DefaultGroupName=Carl Zeiss Meditec AG
@@ -40,7 +40,7 @@ Root:HKCR; Subkey: "czmforum\shell\open\command"; ValueType: string; ValueData: 
 Source: "D:\go\bin\forumlauncher.exe"; DestDir: "{app}"; DestName: "FORUM Launcher.exe"
 
 [UninstallDelete]
-Type: files; Name: "{app}\FORUM Viewer.log"
+Type: files; Name: "{app}\FORUM Launcher.log"
 
 [Code]
 Procedure Uninstall(title : String);

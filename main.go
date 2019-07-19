@@ -18,8 +18,8 @@ import (
 )
 
 // forumlauncher.exe -username czmadmin -password czmAdmin2008 -sopInstanceUid 1.2.276.0.75.2.2.70.0.3.9210271872519.20170801150225000.133221
-// czmforum://server:8181/forumviewer?username=czmadmin&password=czmAdmin2008&sopInstanceUid=1.2.276.0.75.2.2.70.0.3.9210271872519.20170801150225000.133221
-// czmforum://server:8181/forumviewer?username=$$a8ea4f8bd53a4667&password=$$a8ea4fabd53a466712ab4a07&sopInstanceUid=1.2.276.0.75.2.2.70.0.3.9210271872519.20170801150225000.133221
+// czmforum://server/appr?username=czmadmin&password=czmAdmin2008&sopInstanceUid=1.2.276.0.75.2.2.70.0.3.9210271872519.20170801150225000.133221
+// czmforum://server/app?username=$$a8ea4f8bd53a4667&password=$$a8ea4fabd53a466712ab4a07&sopInstanceUid=1.2.276.0.75.2.2.70.0.3.9210271872519.20170801150225000.133221
 //
 // Windows compile:
 // Docu: https://github.com/josephspurrier/goversioninfo
@@ -197,20 +197,6 @@ func main() {
 	}
 
 	info("user home dir: %s", usr.HomeDir)
-
-	sessionName := ""
-
-	if isWindows() {
-		v, b := os.LookupEnv("SESSIONNAME")
-
-		if b {
-			sessionName = "-" + strings.ToUpper(v)
-		}
-	}
-
-	filename := filepath.Join(usr.HomeDir, fmt.Sprintf(".forumlauncher%s.properties", sessionName))
-
-	info("launcher file: %s", filename)
 
 	var cmdLine string
 

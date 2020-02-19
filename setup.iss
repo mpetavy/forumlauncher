@@ -2,11 +2,11 @@
 Name: "en"; MessagesFile: "compiler:Default.isl"
 
 [Setup]
-AppName=FORUM - Viewer Launcher
-AppVerName=FORUM - Viewer Launcher
+AppName=FORUM-Viewer Launcher v1.0.1
+AppVerName=FORUM-Viewer Launcher v1.0.1
 AppContact=Carl Zeiss Meditec AG
 AppCopyright=Carl Zeiss Meditec AG
-AppVersion=1.0.0
+AppVersion=1.0.1
 AppPublisher=Carl Zeiss Meditec AG
 AppPublisherURL=https://www.zeiss.de/meditec/home.html
 AppendDefaultDirName=false
@@ -15,7 +15,7 @@ DefaultGroupName=Carl Zeiss Meditec AG
 VersionInfoCompany=Carl Zeiss Meditec AG
 VersionInfoCopyright=Copyright © Carl Zeiss Meditec AG. All rights reserved.
 VersionInfoDescription=Carl Zeiss Meditec AG
-VersionInfoVersion=1.0.0
+VersionInfoVersion=1.0.1
 UninstallDisplayIcon={app}\forumlauncher.exe
 OutputBaseFilename=Setup ForumLauncher
 DisableReadyPage=false
@@ -83,9 +83,9 @@ begin
   Result := True;
   if (PageId = wpSelectDir) then 
   begin
-    if not FileExists(ExpandConstant('{app}\FORUM Viewer.exe')) then 
+    if not FileExists(ExpandConstant('{app}\FORUM Viewer.exe')) and not FileExists(ExpandConstant('{app}\FORUMViewer.exe')) then 
     begin
-      MsgBox('The selected directory does not contain the file FORUM Viewer.exe.  Please select the correct folder.', mbError, MB_OK);
+      MsgBox('The selected directory does not contain the file FORUM Viewer.exe or FORUMViewer.exe.  Please select the correct folder.', mbError, MB_OK);
       Result := False;
     end;
   end;                                                        

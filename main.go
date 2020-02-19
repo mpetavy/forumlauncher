@@ -82,22 +82,22 @@ func info(t string, arg ...interface{}) {
 		t = fmt.Sprintf(t, arg...)
 	}
 
-	t = time.Now().Format("2006-01-02 15:04:05.000") + " INFO  " + t + "\n";
+	t = time.Now().Format("2006-01-02 15:04:05.000") + " INFO  " + t + "\n"
 	fmt.Printf(t)
 
 	if logFile != nil {
-		logFile.WriteString(t);
+		logFile.WriteString(t)
 	}
 }
 
 func fatal(e error) {
 	t := e.Error()
 
-	t = time.Now().Format("2006-01-02 15:04:05.000") + " ERROR " + t + "\n";
+	t = time.Now().Format("2006-01-02 15:04:05.000") + " ERROR " + t + "\n"
 	fmt.Printf(t)
 
 	if logFile != nil {
-		logFile.WriteString(t);
+		logFile.WriteString(t)
 	}
 }
 
@@ -158,11 +158,19 @@ func initLog() {
 func initViewerpath() {
 	info("")
 
-	viewerpath = currentPath() + string(filepath.Separator) + "FORUM Viewer.exe"
-
-	if !fileExists(viewerpath) {
-		fatal(fmt.Errorf("no viewer executable found: %s", viewerpath))
+	viewerpaths := []string{
+		currentPath() + string(filepath.Separator) + "FORUM Viewer.exe",
+		currentPath() + string(filepath.Separator) + "FORUMViewer.exe",
 	}
+
+	for _, vp := range viewerpaths {
+		if fileExists(vp) {
+			viewerpath = vp
+			return
+		}
+	}
+
+	fatal(fmt.Errorf("no viewer executable found: %+vs", viewerpaths))
 }
 
 func main() {
@@ -207,7 +215,7 @@ func main() {
 	if strings.HasPrefix(cmdLine, "czmforum://") {
 		info("detected URL protocol launcher parameter: %s", cmdLine)
 
-		u, err := url.Parse(cmdLine);
+		u, err := url.Parse(cmdLine)
 		if err != nil {
 			fatal(err)
 		}
@@ -222,7 +230,7 @@ func main() {
 			}
 
 			if !strings.HasPrefix(e, "-") {
-				e = "-" + e;
+				e = "-" + e
 			}
 
 			e = strings.Replace(e, "=", " ", 1)

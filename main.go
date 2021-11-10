@@ -1,3 +1,4 @@
+//go:build windows
 // +build windows
 
 package main
@@ -102,7 +103,7 @@ func fatal(e error) {
 }
 
 // initLog initializes the logging to console and log file
-func initLog() {
+func initLog(homeDir string) {
 	filename, err := os.Executable()
 	if err != nil {
 		filename = os.Args[0]
@@ -116,7 +117,7 @@ func initLog() {
 
 	filename += ".log"
 
-	filename = filepath.Join(currentPath(), filepath.Base(filename))
+	filename = filepath.Join(homeDir, filepath.Base(filename))
 
 	logFile, err = os.OpenFile(filename, os.O_CREATE|os.O_APPEND|os.O_RDWR, os.ModePerm)
 	if err != nil {
@@ -174,7 +175,12 @@ func initViewerpath() {
 }
 
 func main() {
-	initLog()
+	usr, err := user.Current()
+	if err != nil {
+		fatal(err)
+	}
+
+	initLog(usr.HomeDir)
 	initViewerpath()
 
 	defer func() {
@@ -198,12 +204,6 @@ func main() {
 	fmt.Printf("\n")
 
 	info("found viewer: %s", viewerpath)
-
-	usr, err := user.Current()
-	if err != nil {
-		fatal(err)
-	}
-
 	info("user home dir: %s", usr.HomeDir)
 
 	var cmdLine string

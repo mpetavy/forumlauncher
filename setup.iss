@@ -2,11 +2,11 @@
 Name: "en"; MessagesFile: "compiler:Default.isl"
 
 [Setup]
-AppName=FORUM-Viewer Launcher v1.0.1
-AppVerName=FORUM-Viewer Launcher v1.0.1
+AppName=FORUM-Viewer Launcher v1.0.2
+AppVerName=FORUM-Viewer Launcher v1.0.2
 AppContact=Carl Zeiss Meditec AG
 AppCopyright=Carl Zeiss Meditec AG
-AppVersion=1.0.1
+AppVersion=1.0.2
 AppPublisher=Carl Zeiss Meditec AG
 AppPublisherURL=https://www.zeiss.de/meditec/home.html
 AppendDefaultDirName=false
@@ -15,7 +15,7 @@ DefaultGroupName=Carl Zeiss Meditec AG
 VersionInfoCompany=Carl Zeiss Meditec AG
 VersionInfoCopyright=Copyright © Carl Zeiss Meditec AG. All rights reserved.
 VersionInfoDescription=Carl Zeiss Meditec AG
-VersionInfoVersion=1.0.1
+VersionInfoVersion=1.0.2
 UninstallDisplayIcon={app}\forumlauncher.exe
 OutputBaseFilename=Setup ForumLauncher
 DisableReadyPage=false

@@ -200,7 +200,7 @@ func main() {
 	}
 
 	fmt.Printf("\n")
-	fmt.Printf("%s - Launcher for FORUM Viewer\n", strings.ToUpper(appName))
+	fmt.Printf("%s - Launcher for FORUM Viewer 1.0.2\n", strings.ToUpper(appName))
 	fmt.Printf("\n")
 
 	info("found viewer: %s", viewerpath)

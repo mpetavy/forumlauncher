@@ -1,6 +1,8 @@
 //go:build windows
 // +build windows
 
+//go:generate goversioninfo
+
 package main
 
 import (
@@ -22,11 +24,13 @@ import (
 // czmforum://server/appr?username=czmadmin&password=czmAdmin2008&sopInstanceUid=1.2.276.0.75.2.2.70.0.3.9210271872519.20170801150225000.133221
 // czmforum://server/app?username=$$a8ea4f8bd53a4667&password=$$a8ea4fabd53a466712ab4a07&sopInstanceUid=1.2.276.0.75.2.2.70.0.3.9210271872519.20170801150225000.133221
 //
-// Windows compile:
-// Docu: https://github.com/josephspurrier/goversioninfo
-// go get github.com/josephspurrier/goversioninfo/cmd/goversioninfo
-// go generate
-// go install -ldflags -H=windowsgui
+// Windows compile (Docu: https://github.com/josephspurrier/goversioninfo)
+//
+// 1. go install github.com/josephspurrier/goversioninfo/cmd/goversioninfo@latest
+// 2. edit version.json for possible changes...
+// 3. go generate
+// 4. go install -ldflags -H=windowsgui
+// 5. Inno Setup compiler setp.iss
 //
 // MacOS compile:
 // Docu: https://medium.com/@mattholt/packaging-a-go-application-for-macos-f7084b00f6b5

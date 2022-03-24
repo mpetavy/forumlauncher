@@ -21,8 +21,8 @@ import (
 )
 
 // forumlauncher.exe -username czmadmin -password czmAdmin2008 -sopInstanceUid 1.2.276.0.75.2.2.70.0.3.9210271872519.20170801150225000.133221
-// czmforum://server/appr?username=czmadmin&password=czmAdmin2008&sopInstanceUid=1.2.276.0.75.2.2.70.0.3.9210271872519.20170801150225000.133221
-// czmforum://server/app?username=$$a8ea4f8bd53a4667&password=$$a8ea4fabd53a466712ab4a07&sopInstanceUid=1.2.276.0.75.2.2.70.0.3.9210271872519.20170801150225000.133221
+// forum://server/appr?username=czmadmin&password=czmAdmin2008&sopInstanceUid=1.2.276.0.75.2.2.70.0.3.9210271872519.20170801150225000.133221
+// forum://server/app?username=$$a8ea4f8bd53a4667&password=$$a8ea4fabd53a466712ab4a07&sopInstanceUid=1.2.276.0.75.2.2.70.0.3.9210271872519.20170801150225000.133221
 //
 // Windows compile (Docu: https://github.com/josephspurrier/goversioninfo)
 //
@@ -216,7 +216,7 @@ func main() {
 		cmdLine = strings.Join(os.Args[1:], " ")
 	}
 
-	if strings.HasPrefix(cmdLine, "forum://") {
+	if strings.HasPrefix(cmdLine, "czmforum://") || strings.HasPrefix(cmdLine, "forum://") {
 		info("detected URL protocol launcher parameter: %s", cmdLine)
 
 		u, err := url.Parse(cmdLine)

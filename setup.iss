@@ -12,11 +12,12 @@ AppPublisherURL=https://www.zeiss.de/meditec/home.html
 AppendDefaultDirName=false
 DefaultDirName={pf64}\CZM\Forum Viewer
 DefaultGroupName=Carl Zeiss Meditec AG
+SetupIconFile=CZ-Icon-Win.ico 
 VersionInfoCompany=Carl Zeiss Meditec AG
-VersionInfoCopyright=Copyright © Carl Zeiss Meditec AG. All rights reserved.
+VersionInfoCopyright=Copyright ï¿½ Carl Zeiss Meditec AG. All rights reserved.
 VersionInfoDescription=Carl Zeiss Meditec AG
 VersionInfoVersion=1.0.3
-UninstallDisplayIcon={app}\forumlauncher.exe
+UninstallDisplayIcon=CZ-Icon-Win.ico
 OutputBaseFilename=Setup-ForumLauncher-v1.0.3
 ; DisableReadyPage=false
 AlwaysShowDirOnReadyPage=false
@@ -31,10 +32,14 @@ UsePreviousGroup=no
 DirExistsWarning=false
 
 [Registry]
-Root:HKCR; Subkey: "forum"; ValueType: string; ValueData: "URL:Custom Protocol"; Flags: uninsdeletekey; 
-Root:HKCR; Subkey: "forum"; ValueType: string; ValueName: "URL Protocol"; ValueData: ""; Flags: uninsdeletekey; 
-Root:HKCR; Subkey: "forum\DefaultIcon"; ValueType: string; ValueData: "{app}\FORUM Launcher.exe,0"; Flags: uninsdeletekey; 
-Root:HKCR; Subkey: "forum\shell\open\command"; ValueType: string; ValueData: """{app}\FORUM Launcher.exe"" ""%1"""; Flags: uninsdeletekey; 
+Root:HKCR; Subkey: "czmforum"; ValueType: string; ValueData: "URL:Custom Protocol"; Flags: uninsdeletekey;
+Root:HKCR; Subkey: "czmforum"; ValueType: string; ValueName: "URL Protocol"; ValueData: ""; Flags: uninsdeletekey;
+Root:HKCR; Subkey: "czmforum\DefaultIcon"; ValueType: string; ValueData: "{app}\FORUM Launcher.exe,0"; Flags: uninsdeletekey;
+Root:HKCR; Subkey: "czmforum\shell\open\command"; ValueType: string; ValueData: """{app}\FORUM Launcher.exe"" ""%1"""; Flags: uninsdeletekey;
+Root:HKCR; Subkey: "forum"; ValueType: string; ValueData: "URL:Custom Protocol"; Flags: uninsdeletekey;
+Root:HKCR; Subkey: "forum"; ValueType: string; ValueName: "URL Protocol"; ValueData: ""; Flags: uninsdeletekey;
+Root:HKCR; Subkey: "forum\DefaultIcon"; ValueType: string; ValueData: "{app}\FORUM Launcher.exe,0"; Flags: uninsdeletekey;
+Root:HKCR; Subkey: "forum\shell\open\command"; ValueType: string; ValueData: """{app}\FORUM Launcher.exe"" ""%1"""; Flags: uninsdeletekey;
 
 [Files]
 Source: "D:\go\bin\forumlauncher.exe"; DestDir: "{app}"; DestName: "FORUM Launcher.exe"
@@ -81,21 +86,21 @@ end;
 function NextButtonClick(PageId: Integer): Boolean;
 begin
   Result := True;
-  if (PageId = wpSelectDir) then 
+  if (PageId = wpSelectDir) then
   begin
-    if not FileExists(ExpandConstant('{app}\FORUM Viewer.exe')) and not FileExists(ExpandConstant('{app}\FORUMViewer.exe')) then 
+    if not FileExists(ExpandConstant('{app}\FORUM Viewer.exe')) and not FileExists(ExpandConstant('{app}\FORUMViewer.exe')) then
     begin
       MsgBox('The selected directory does not contain the file FORUM Viewer.exe or FORUMViewer.exe.  Please select the correct folder.', mbError, MB_OK);
       Result := False;
     end;
-  end;                                                        
+  end;
 end;
 
 procedure ChangeFile(old, nw: string);
 begin
   if FileExists(old) then
   begin
-    if FileExists(nw) and not DeleteFile(nw) then 
+    if FileExists(nw) and not DeleteFile(nw) then
     begin
       MsgBox('Cannot delete file:' + nw, mbError, MB_OK);
       WizardForm.Close;

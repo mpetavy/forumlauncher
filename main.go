@@ -212,7 +212,7 @@ func main() {
 		cmdLine = strings.Join(os.Args[1:], " ")
 	}
 
-	if strings.HasPrefix(cmdLine, "czmforum://") {
+	if strings.HasPrefix(cmdLine, "forum://") {
 		info("detected URL protocol launcher parameter: %s", cmdLine)
 
 		u, err := url.Parse(cmdLine)

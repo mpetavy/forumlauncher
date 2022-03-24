@@ -31,10 +31,10 @@ UsePreviousGroup=no
 DirExistsWarning=false
 
 [Registry]
-Root:HKCR; Subkey: "czmforum"; ValueType: string; ValueData: "URL:Custom Protocol"; Flags: uninsdeletekey; 
-Root:HKCR; Subkey: "czmforum"; ValueType: string; ValueName: "URL Protocol"; ValueData: ""; Flags: uninsdeletekey; 
-Root:HKCR; Subkey: "czmforum\DefaultIcon"; ValueType: string; ValueData: "{app}\FORUM Launcher.exe,0"; Flags: uninsdeletekey; 
-Root:HKCR; Subkey: "czmforum\shell\open\command"; ValueType: string; ValueData: """{app}\FORUM Launcher.exe"" ""%1"""; Flags: uninsdeletekey; 
+Root:HKCR; Subkey: "forum"; ValueType: string; ValueData: "URL:Custom Protocol"; Flags: uninsdeletekey; 
+Root:HKCR; Subkey: "forum"; ValueType: string; ValueName: "URL Protocol"; ValueData: ""; Flags: uninsdeletekey; 
+Root:HKCR; Subkey: "forum\DefaultIcon"; ValueType: string; ValueData: "{app}\FORUM Launcher.exe,0"; Flags: uninsdeletekey; 
+Root:HKCR; Subkey: "forum\shell\open\command"; ValueType: string; ValueData: """{app}\FORUM Launcher.exe"" ""%1"""; Flags: uninsdeletekey; 
 
 [Files]
 Source: "D:\go\bin\forumlauncher.exe"; DestDir: "{app}"; DestName: "FORUM Launcher.exe"

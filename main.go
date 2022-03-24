@@ -200,7 +200,7 @@ func main() {
 	}
 
 	fmt.Printf("\n")
-	fmt.Printf("%s - Launcher for FORUM Viewer 1.0.2\n", strings.ToUpper(appName))
+	fmt.Printf("%s - Launcher for FORUM Viewer 1.0.3\n", strings.ToUpper(appName))
 	fmt.Printf("\n")
 
 	info("found viewer: %s", viewerpath)
@@ -212,7 +212,7 @@ func main() {
 		cmdLine = strings.Join(os.Args[1:], " ")
 	}
 
-	if strings.HasPrefix(cmdLine, "czmforum://") {
+	if strings.HasPrefix(cmdLine, "forum://") {
 		info("detected URL protocol launcher parameter: %s", cmdLine)
 
 		u, err := url.Parse(cmdLine)

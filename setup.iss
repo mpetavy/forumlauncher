@@ -2,11 +2,11 @@
 Name: "en"; MessagesFile: "compiler:Default.isl"
 
 [Setup]
-AppName=FORUM-Viewer Launcher v1.0.2
-AppVerName=FORUM-Viewer Launcher v1.0.2
+AppName=FORUM-Viewer Launcher v1.0.3
+AppVerName=FORUM-Viewer Launcher v1.0.3
 AppContact=Carl Zeiss Meditec AG
 AppCopyright=Carl Zeiss Meditec AG
-AppVersion=1.0.2
+AppVersion=1.0.3
 AppPublisher=Carl Zeiss Meditec AG
 AppPublisherURL=https://www.zeiss.de/meditec/home.html
 AppendDefaultDirName=false
@@ -15,9 +15,9 @@ DefaultGroupName=Carl Zeiss Meditec AG
 VersionInfoCompany=Carl Zeiss Meditec AG
 VersionInfoCopyright=Copyright © Carl Zeiss Meditec AG. All rights reserved.
 VersionInfoDescription=Carl Zeiss Meditec AG
-VersionInfoVersion=1.0.2
+VersionInfoVersion=1.0.3
 UninstallDisplayIcon={app}\forumlauncher.exe
-OutputBaseFilename=Setup-ForumLauncher-v1.0.2
+OutputBaseFilename=Setup-ForumLauncher-v1.0.3
 ; DisableReadyPage=false
 AlwaysShowDirOnReadyPage=false
 Compression=lzma
@@ -31,10 +31,10 @@ UsePreviousGroup=no
 DirExistsWarning=false
 
 [Registry]
-Root:HKCR; Subkey: "czmforum"; ValueType: string; ValueData: "URL:Custom Protocol"; Flags: uninsdeletekey; 
-Root:HKCR; Subkey: "czmforum"; ValueType: string; ValueName: "URL Protocol"; ValueData: ""; Flags: uninsdeletekey; 
-Root:HKCR; Subkey: "czmforum\DefaultIcon"; ValueType: string; ValueData: "{app}\FORUM Launcher.exe,0"; Flags: uninsdeletekey; 
-Root:HKCR; Subkey: "czmforum\shell\open\command"; ValueType: string; ValueData: """{app}\FORUM Launcher.exe"" ""%1"""; Flags: uninsdeletekey; 
+Root:HKCR; Subkey: "forum"; ValueType: string; ValueData: "URL:Custom Protocol"; Flags: uninsdeletekey; 
+Root:HKCR; Subkey: "forum"; ValueType: string; ValueName: "URL Protocol"; ValueData: ""; Flags: uninsdeletekey; 
+Root:HKCR; Subkey: "forum\DefaultIcon"; ValueType: string; ValueData: "{app}\FORUM Launcher.exe,0"; Flags: uninsdeletekey; 
+Root:HKCR; Subkey: "forum\shell\open\command"; ValueType: string; ValueData: """{app}\FORUM Launcher.exe"" ""%1"""; Flags: uninsdeletekey; 
 
 [Files]
 Source: "D:\go\bin\forumlauncher.exe"; DestDir: "{app}"; DestName: "FORUM Launcher.exe"

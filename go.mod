@@ -1,3 +1,3 @@
 module github.com/mpetavy/forumlauncher
 
-go 1.20
+go 1.19
